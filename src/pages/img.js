@@ -11,15 +11,12 @@ cloudinary.config(
     }
 );
 
-console.log(cloudinary.config());
-
 const Home = () => {
   return (
     <CldUploadWidget 
         options={{ sources: ['local', 'url'] }}
         signatureEndpoint="/api/sign-img" 
         onSuccess={(results) => {
-            console.log(results.info.secure_url);
             db.collection('images').insertOne({ url: results.info.secure_url });
         }}
     >

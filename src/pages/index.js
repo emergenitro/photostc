@@ -19,7 +19,6 @@ const Images = () =>
     func(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/resources/image`)
     .then(results => {
         final = results.map((result) => result.secure_url);
-        console.log(final);
         return (
             <div className="image-gallery">
                 {final.map((url, index) => (
