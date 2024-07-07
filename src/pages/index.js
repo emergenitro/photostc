@@ -4,12 +4,9 @@ function func(url)
 {
     return fetch(url,
         {
+            method: 'GET',
             headers: {
                 Authorization: `Basic ${Buffer.from(process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY + ':' + process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET).toString('base64')}`,
-                'Access-Control-Allow-Credentials': 'true',
-                'Access-Control-Allow-Origin': '*', // Replace with your actual origin
-                'Access-Control-Allow-Methods': 'POST, GET, PATCH, DELETE, OPTIONS, PUT',
-                'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version',
             }
         }
     )

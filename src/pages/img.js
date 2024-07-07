@@ -13,11 +13,11 @@ cloudinary.config(
 
 const Home = () => {
   return (
-    <CldUploadWidget 
+    <div><CldUploadWidget 
         options={{ sources: ['local', 'url'] }}
         signatureEndpoint="/api/sign-img" 
         onSuccess={(results) => {
-            db.collection('images').insertOne({ url: results.info.secure_url });
+            document.getElementById('done').innerHTML = 'Upload complete!';
         }}
     >
         {({ open }) => {
@@ -28,6 +28,10 @@ const Home = () => {
             );
         }}
     </CldUploadWidget>
+    <p>
+        <span id="done"></span>
+    </p>
+    </div>
   );
 };
 

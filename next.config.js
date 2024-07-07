@@ -1,10 +1,7 @@
 module.exports = {
-  async rewrites() {
-      return [
-        {
-          source: '/api/:path*',
-          destination: 'https://api.cloudinary.com/v1_1/:path*',
-        },
-      ]
-    },
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+
+    return config;
+  },
 };
